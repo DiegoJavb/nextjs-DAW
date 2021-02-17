@@ -1,6 +1,9 @@
 import React from 'react';
 
 const ArticleDetails = ({article}) => {
+    if(!article){
+        return 'cargando'
+    }
     return (
         <div>
             {article.title
