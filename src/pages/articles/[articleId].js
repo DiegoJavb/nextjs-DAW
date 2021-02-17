@@ -17,9 +17,10 @@ export default ArticleDetails;
 export async function getStaticProps(context) {
     console.log('context',context);
     const {articleId} = context.params 
-    const res = await fetch(`http://localhost:8000/api/articles/${articleId}`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/articles/${articleId}`)
     const data = await res.json();
 
+    console.log('data',data);
     if(!data){
         return{
             notFount:true,
